@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Entity } from './classes/entity';
-import { Ctor, Path } from './types';
+import { Entity } from '../classes/entity';
+import { Ctor, Path } from '../types';
 import { TypedJSON } from 'typedjson';
 
 @Injectable({

@@ -2,11 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { UtilityModule } from 'utility';
 
 import { AppComponent } from './app.component';
-import { SignedPipe } from './core/pipes/signed.pipe';
-import { AbsPipe } from './core/pipes/abs.pipe';
-import { FilterPipe } from './core/pipes/filter.pipe';
 import { EditComponent } from './pages/edit/edit.component';
 import { OptionsComponent } from './pages/edit/options/options.component';
 import { StatsComponent } from './pages/edit/stats/stats.component';
@@ -29,9 +27,6 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    SignedPipe,
-    AbsPipe,
-    FilterPipe,
     EditComponent,
     OptionsComponent,
     StatsComponent,
@@ -43,6 +38,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     BrowserModule,
     FormsModule,
+    UtilityModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
