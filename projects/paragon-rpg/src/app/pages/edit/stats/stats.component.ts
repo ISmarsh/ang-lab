@@ -3,8 +3,6 @@ import { Stats, StatName } from 'projects/paragon-rpg/src/app/data/stat';
 import { Skills } from 'projects/paragon-rpg/src/app/data/skill';
 import { SkillMap } from 'projects/paragon-rpg/src/app/data/stat-skill-map';
 import { EditComponent } from '../edit.component';
-import { Repository } from 'projects/paragon-rpg/src/app/model/repository';
-import { Character } from 'projects/paragon-rpg/src/app/model/character';
 
 @Component({
   selector: 'app-stats',

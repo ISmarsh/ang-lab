@@ -1,8 +1,7 @@
-import { Data } from "../core/types";
-import { Index } from '../core/classes';
+import { Named, Index } from 'utility';
 
-export type TraversalPower = Data & {
-  abilities: (Data & { description: string; })[];
+export type TraversalPower = Named & {
+  abilities: (Named & { description: string; })[];
 }
 
 export const TraversalPowers = new Index<TraversalPower>(

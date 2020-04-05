@@ -1,8 +1,6 @@
-import { Data } from "../core/types";
-import { CategoryIndex } from '../core/classes';
-import { Die } from '../core/types';
+import { Named, CategoryIndex, Die } from 'utility';
 
-export type MainPower = Data & {
+export type MainPower = Named & {
   activation: 'Free' | 'Act' | 'React' | 'Automatic';
   stamina: number;
   range: 'Self' | 'Melee' | number;

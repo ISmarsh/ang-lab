@@ -1,7 +1,6 @@
-import { Data } from "../core/types";
-import { Index } from '../core/classes';
+import { Named, Index } from 'utility';
 
-export type Skill = Data & {
+export type Skill = Named & {
   description: string;
 };
 

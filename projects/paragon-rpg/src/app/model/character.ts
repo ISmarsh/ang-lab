@@ -1,20 +1,17 @@
 import { Origin, Origins } from 'projects/paragon-rpg/src/app/data/origin';
 import { Archetype, Archetypes } from 'projects/paragon-rpg/src/app/data/archetype';
 import { TraversalPower, TraversalPowers } from 'projects/paragon-rpg/src/app/data/traversal';
-import { Stats, StatName } from '../data/stat';
-import { Entity } from './entity';
+import { StatName } from '../data/stat';
 import { Alignment, Alignments } from '../data/alignment';
 import { jsonObject, jsonMember, jsonArrayMember } from 'typedjson';
-import { jsonDataMember, jsonDataArrayMember } from '../core/decorators/json-data-member';
+import { Entity, jsonDataMember, jsonDataArrayMember, group } from 'utility';
 import { Language, Languages } from '../data/language';
-import { group } from '../core/functions';
 import { DamageType, DamageTypes } from '../data/damage-type';
 import { PowerSet, PowerSets } from '../data/power-set';
 import { MainPower, MainPowers } from '../data/main-power';
 import { AncillaryPower, AncillaryPowers } from '../data/ancillary-power';
 import { Progression, Level } from '../data/leveling';
 import { Features } from '../core/enums';
-import { Repository } from './repository';
 
 @jsonObject
 @Reflect.metadata("name", "Character")
@@ -60,8 +57,6 @@ export class Character extends Entity {
     else if (to && to.length) {
       this.originSkills.push(to);
     }
-
-    Repository.save(Character, this);
   }
   public getOriginSkills(): string[] {
     const array = this.originSkills.concat(new Array<string>(this.origin.proficiencyCount));

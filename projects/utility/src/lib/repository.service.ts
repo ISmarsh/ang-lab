@@ -1,9 +1,16 @@
-import { Entity } from './entity';
+import { Injectable } from '@angular/core';
+import { Entity } from './classes/entity';
+import { Ctor, Path } from './types';
 import { TypedJSON } from 'typedjson';
-import { Ctor, Path } from '../core/types';
 
-export abstract class Repository {
-  public static save<T extends Entity>(type: Ctor<T>, item: T, ...path: Path): T {
+@Injectable({
+  providedIn: 'root'
+})
+export class Repository {
+
+  constructor() { }
+  
+  public save<T extends Entity>(type: Ctor<T>, item: T, ...path: Path): T {
     var collection = this.get(type, ...path) || [];
 
     if (item.id === undefined) {
@@ -23,7 +30,7 @@ export abstract class Repository {
     return item;
   }
 
-  public static get<T extends Entity>(type: Ctor<T>, ...path: Path): T[] {
+  public get<T extends Entity>(type: Ctor<T>, ...path: Path): T[] {
     var key = this.getKey(type, path);
 
     var item = localStorage.getItem(key) || "[]";
@@ -31,7 +38,7 @@ export abstract class Repository {
     return TypedJSON.parseAsArray(item, type);
   }
 
-  private static getKey<T>(type: Ctor<T>, path: Path): string {
+  private getKey<T>(type: Ctor<T>, path: Path): string {
     if (type) {
       var name = Reflect.getMetadata("name", type);
 

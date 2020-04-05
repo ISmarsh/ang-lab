@@ -20,7 +20,7 @@
             <li class="list-group-item">
               <b>Skills:</b> Choose {{character.origin.proficiencyCount}} from {{character.origin.proficiencyOptions.join(", ")}}
               <ng-container *ngFor="let skill of character.getOriginSkills(); index as i">
-                <select class="form-control mt-2" name="originSkill{{i}}" (change)="character.changeOriginSkill(skill, $event.target.value)">
+                <select class="form-control mt-2" name="originSkill{{i}}" (change)="changeOriginSkill(skill, $event.target.value)">
                   <option selected>
                     {{skill}}
                   </option>

@@ -1,8 +1,7 @@
-import { Data } from "../core/types";
-import { Index } from '../core/classes';
+import { Named, Index } from 'utility';
 import { StatName } from './stat';
 
-export type AncillaryPower = Data & {
+export type AncillaryPower = Named & {
   description: string;
   statIncrease?: { [stat in StatName]?: number } | { "Choose": (1 | 2)[] };
   skillProficiency?: StatName;

@@ -1,8 +1,7 @@
-import { Data } from "../core/types";
-import { Index } from '../core/classes';
+import { Named, Index } from 'utility';
 import { StatName } from './stat';
 
-export type Archetype = Data & {
+export type Archetype = Named & {
   description: string;
   inherentAbility: string;
   statIncreases: { [stat in StatName]?: 1 | 2 };

@@ -1,7 +1,6 @@
-import { Data } from "../core/types";
-import { CategoryIndex, Index } from '../core/classes';
+import { Named, CategoryIndex } from 'utility';
 
-export type Language = Data & {
+export type Language = Named & {
   speakers: string[];
 }
 

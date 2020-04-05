@@ -1,7 +1,6 @@
-import { CategoryIndex } from '../core/classes';
-import { Data } from "../core/types";
+import { Named, CategoryIndex } from 'utility';
 
-export type PowerSet = Data & {
+export type PowerSet = Named & {
   primary: boolean;
   secondary: boolean;
 }

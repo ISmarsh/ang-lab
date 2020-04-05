@@ -1,7 +1,6 @@
-import { Data } from "../core/types";
-import { Index } from '../core/classes';
+import { Named, Index } from 'utility';
 
-export type Origin = Data & {
+export type Origin = Named & {
   description: string;
   proficiencyCount: number;
   proficiencyOptions: string[];

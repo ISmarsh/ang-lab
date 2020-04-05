@@ -37,30 +37,10 @@ export class OptionsComponent extends EditComponent implements OnInit, OnDestroy
   stats = Stats;
   skillMap = SkillMap;
 
-  rangeDisplay(power: MainPower): string {
-    var display = power.range.toString();
+  changeOriginSkill(from: string, to: string): void {
+    this.character.changeOriginSkill(from, to);
 
-    if (typeof power.range === "number") display += "ft";
-
-    if (power.area) {
-      display += ` (${power.area.size}ft ${power.area.type})`;
-    }
-
-    return display;
-  }
-
-  effectRollDisplay(power: MainPower): string {
-    if (!power.effectRoll) return '';
-
-    var scale = (power.effectRoll.scale.concat([])).reverse().find(s => s.level <= this.character.level)    
-
-    var display = `${scale.die[0]}d${scale.die[1]}`;
-
-    if (power.effectRoll.type) {
-      display += ` ${power.effectRoll.type}`;
-    }
-
-    return display;
+    this.save();
   }
 
   ngOnDestroy(): void {

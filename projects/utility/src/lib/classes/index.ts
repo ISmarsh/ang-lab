@@ -1,6 +1,6 @@
-import { Data } from "../types";
+import { Named } from "../types";
 
-export class Index<T extends Data> extends Array<T> {
+export class Index<T extends Named> extends Array<T> {
   constructor(...values: T[]) {
     super(...values);
 
@@ -10,7 +10,7 @@ export class Index<T extends Data> extends Array<T> {
   byName: { [name: string]: T } = {};
 }
 
-export class CategoryIndex<T extends Data> extends Index<T> {
+export class CategoryIndex<T extends Named> extends Index<T> {
   constructor(index: { [category: string]: T[] }) {
     var array = new Array<T>();
 

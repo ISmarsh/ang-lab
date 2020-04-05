@@ -1,7 +1,6 @@
-import { CategoryIndex } from '../core/classes';
-import { Data } from "../core/types";
+import { Named, CategoryIndex } from 'utility';
 
-export type DamageType = Data & {
+export type DamageType = Named & {
   description: string;
 };
 

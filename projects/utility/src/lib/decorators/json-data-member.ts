@@ -1,12 +1,12 @@
 
 import { Index } from '../classes';
-import { Data } from "../types";
+import { Named } from "../types";
 import { compose } from '../functions';
 import { jsonMember, jsonArrayMember } from 'typedjson';
 import { IJsonMemberOptions } from 'typedjson/js/typedjson/json-member';
 import { IJsonArrayMemberOptions } from 'typedjson/js/typedjson/json-array-member';
 
-export function jsonDataMember<T extends Data>(
+export function jsonDataMember<T extends Named>(
   data: Index<T>, options?: IJsonMemberOptions
 ): PropertyDecorator {
   options = (options || {});
@@ -21,7 +21,7 @@ export function jsonDataMember<T extends Data>(
   return jsonMember(options);
 };
 
-export function jsonDataArrayMember<T extends Data>(
+export function jsonDataArrayMember<T extends Named>(
   data: Index<T>, options?: IJsonArrayMemberOptions
 ): PropertyDecorator {
   options = (options || {});

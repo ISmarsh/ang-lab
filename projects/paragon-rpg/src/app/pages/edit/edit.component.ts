@@ -1,21 +1,11 @@
 import { Component, OnInit, AfterViewInit, ViewChild, OnDestroy } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Repository } from 'utility';
+import { Subscription } from 'rxjs';
 
 import { Character } from '../../model/character';
-import { Origins } from '../../data/origin';
-import { Languages } from '../../data/language';
-import { Alignments } from '../../data/alignment';
-import { Archetypes } from '../../data/archetype';
-import { PowerSets } from '../../data/power-set';
-import { TraversalPowers } from '../../data/traversal';
-import { Stats } from '../../data/stat';
-import { Skills } from '../../data/skill';
-import { SkillMap } from '../../data/stat-skill-map';
-import { Repository } from '../../model/repository';
-import { DamageTypes } from '../../data/damage-type';
 import { Progression } from '../../data/leveling';
-import { CharacterService } from 'projects/paragon-rpg/src/app/core/services/character.service';
-import { Subscription } from 'rxjs';
+import { CharacterService } from '../../core/services/character.service';
 
 @Component({
   selector: 'app-edit',
@@ -24,7 +14,8 @@ import { Subscription } from 'rxjs';
 })
 export class EditComponent implements OnInit, AfterViewInit, OnDestroy {
   constructor(
-    private service: CharacterService
+    private service: CharacterService,
+    private repository: Repository,
   ) { 
     this.subscriptions.push(this.service.current.subscribe(c => this.character = c));
   }
@@ -50,7 +41,7 @@ export class EditComponent implements OnInit, AfterViewInit, OnDestroy {
   progression = Progression;
 
   protected save() {
-    return Repository.save(Character, this.character);
+    return this.repository.save(Character, this.character);
   }
 
   public up(): void {

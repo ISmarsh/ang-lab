@@ -1,7 +1,6 @@
-import { Data } from "../core/types";
-import { Index } from '../core/classes';
+import { Named, Index } from 'utility';
 
-export type Alignment = Data & {
+export type Alignment = Named & {
   description: string;
 };
 

@@ -1,8 +1,8 @@
-import { Data } from "../core/types";
+import { Named } from 'utility';
 
 export type StatName = "Might" | "Swiftness" | "Vitality" | "Intelligence" | "Ego" | "Charisma"
 
-export type Stat = Data<StatName> & {
+export type Stat = Named<StatName> & {
   description: string;
 };
 
