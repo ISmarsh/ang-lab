@@ -1,0 +1,62 @@
+<div class="border-bottom bg-primary text-white">
+  <div class="container">
+    <form>
+      <div class="row pt-4">
+        <div class="col-sm-9 col-md-6">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input id="name" name="name" [(ngModel)]="character.name" type="text" class="form-control" autofocus>
+          </div>
+        </div>
+        <div class="col-4 col-sm-3 col-md-2">
+          <div class="form-group">
+            <label for="level">Level</label>
+            <input id="level" name="level" [(ngModel)]="character.level" type="number" min="1" max="30" class="form-control">
+          </div>
+        </div>
+      </div>
+    </form>
+    <div class="row" style="margin-bottom: -1px">
+      <div class="col">
+          <ul class="nav nav-tabs nav-fill">
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['options']" routerLinkActive="active">
+                Origin &<br class="d-sm-none"> Powers
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['stats']" routerLinkActive="active">
+                Stats &<br class="d-sm-none"> Skills
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['personal']" routerLinkActive="active">
+                Personal<br class="d-sm-none"> Info
+              </a>
+            </li>
+          </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container py-3 mb-5 mb-md-0">
+  <router-outlet></router-outlet>  
+</div>
+
+<div class="d-md-none border-top bg-secondary py-2 fixed-bottom">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <button (click)="up()" class="btn btn-primary btn-block">
+          <i class="fas fa-caret-up"></i>
+        </button>
+      </div>
+      <div class="col">
+        <button (click)="down()" class="btn btn-primary btn-block">
+          <i class="fas fa-caret-down"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

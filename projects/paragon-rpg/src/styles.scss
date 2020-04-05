@@ -1,0 +1,57 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../../../node_modules/bootstrap/scss/functions";
+@import "../../../node_modules/bootstrap/scss/variables";
+
+body {
+  background-color: $secondary !important;
+}
+
+.nav-link {
+  color: white !important;
+  border-bottom-width: 0px !important;
+
+  &.active {
+    background-color: $secondary !important;
+  }
+}
+
+.card-header { 
+  color: white !important;
+  background-color: $primary !important;
+}
+
+.input-group select, .input-group option {
+  font-weight: normal !important;
+}
+
+label, select, option, .card-header {
+  font-weight: bold !important;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+label.custom-control-label:empty {
+  &::before, &::after {
+    left: -1.25rem;
+  }
+}
+
+.mod {
+  margin-left: -1ch !important;
+  
+  &.negative::before {
+    content: '-';
+  }
+  &:not(.negative)::before {
+    content: '+';
+  }
+}
+
+td.shrink, th.shrink {
+  width: 1px;
+  white-space: nowrap;
+}
